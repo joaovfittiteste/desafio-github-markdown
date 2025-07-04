@@ -73,3 +73,26 @@ void inserirFinal(Node **head, Node **tail, int n){
     }
 
 }
+
+//remover final
+void removerFinal(Node **head, Node **tail){
+    if(*head != NULL){
+        Node *temp = *head;
+
+        if(*head == *tail){
+            *head = *tail = NULL;
+            free(temp);
+        }
+        else{
+            while(temp->prox != *tail){
+                temp = temp->prox;
+            }
+            temp->prox = *head;
+            free(*tail);
+            *tail = temp;
+            
+        }
+        
+    }
+    
+}
